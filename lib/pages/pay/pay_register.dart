@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paycheck/controllers/name_controller.dart';
 import 'package:paycheck/pages/pay/pay_base.dart';
 import 'package:paycheck/widgets/name_text_field.dart';
 
@@ -8,7 +9,7 @@ class PayRegister extends StatefulWidget {
 }
 
 class _PayRegisterState extends State<PayRegister> {
-  TextEditingController _nameController = TextEditingController();
+  NameController _nameController = NameController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,8 @@ class _PayRegisterState extends State<PayRegister> {
               padding:
                   const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0),
               child: NameTextField(
-                nameController: _nameController,
+                nameController: _nameController.nameController,
+                onEditingComplete: _nameController.saveName,
               ),
             ),
           ],
@@ -38,7 +40,9 @@ class _PayRegisterState extends State<PayRegister> {
           size: 32,
           color: Theme.of(context).secondaryHeaderColor,
         ),
-        onPressed: () => {},
+        onPressed: () => {
+          print('SaveStateText = ${_nameController.showName}')
+        },
       ),
     );
   }

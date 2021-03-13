@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class NameTextField extends StatefulWidget {
   final TextEditingController nameController;
+  final Function onEditingComplete;
 
-  NameTextField({@required this.nameController});
+  NameTextField({@required this.nameController, @required this.onEditingComplete});
 
   @override
   _NameTextFieldState createState() => _NameTextFieldState();
@@ -20,6 +21,7 @@ class _NameTextFieldState extends State<NameTextField> {
       cursorColor: Theme.of(context).primaryColor,
       cursorRadius: Radius.circular(64.0),
       controller: widget.nameController,
+      onEditingComplete: widget.onEditingComplete,
       decoration: InputDecoration(
           alignLabelWithHint: true,
           hintText: 'Payment name',
