@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paycheck/pages/pay/paylist.dart';
-import 'package:paycheck/pages/pay/payregister.dart';
+import 'package:paycheck/pages/pay/pay_list.dart';
+import 'package:paycheck/pages/pay/pay_register.dart';
 
 class Base extends StatelessWidget {
-  final List<Shadow> shadowTextLight = [
-    Shadow(blurRadius: 15, color: Colors.grey[400]),
-    Shadow(blurRadius: 15, color: Colors.grey[800]),
-  ];
-
-  final List<Shadow> shadowTextDark = [
-    Shadow(blurRadius: 5, color: Colors.grey[800]),
-    Shadow(blurRadius: 5, color: Colors.grey[400]),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -26,25 +16,31 @@ class Base extends StatelessWidget {
         backgroundColor: Colors.grey[400],
         textTheme: TextTheme(
           bodyText1: TextStyle(
-            fontFamily: 'Bungee',
+            fontFamily: 'Orbitron',
             color: Colors.grey[900],
             fontSize: 42,
           ),
           bodyText2: TextStyle(
-            fontFamily: 'Bungee',
+            fontFamily: 'Orbitron',
             color: Colors.grey[100],
-            fontSize: 42,
+            fontSize: 24,
           ),
           headline3: TextStyle(
-              color: Colors.white, fontFamily: 'Bungee', fontSize: 24),
+            color: Colors.white,
+            fontFamily: 'Orbitron',
+            fontSize: 16,
+          ),
           headline6: TextStyle(
-              color: Colors.white,
-              fontSize: 42,
-              shadows: shadowTextLight,
-              wordSpacing: 1,
-              letterSpacing: 2,
-              fontFamily: 'Bungee'),
-          button: TextStyle(color: Colors.grey[400], fontFamily: 'Bungee'),
+            color: Colors.white,
+            fontSize: 12,
+            wordSpacing: 1,
+            letterSpacing: 2,
+            fontFamily: 'Orbitron',
+          ),
+          button: TextStyle(
+            color: Colors.grey[400],
+            fontFamily: 'Orbitron',
+          ),
         ),
       ),
       darkTheme: ThemeData(
@@ -54,26 +50,31 @@ class Base extends StatelessWidget {
         backgroundColor: Colors.grey[900],
         textTheme: TextTheme(
           bodyText1: TextStyle(
-            fontFamily: 'Bungee',
+            fontFamily: 'Orbitron',
             color: Colors.grey[600],
             fontSize: 42,
           ),
           bodyText2: TextStyle(
-            fontFamily: 'Bungee',
+            fontFamily: 'Orbitron',
             color: Colors.grey[400],
-            fontSize: 42,
+            fontSize: 24,
           ),
           headline3: TextStyle(
-              color: Colors.grey[600], fontFamily: 'Bungee', fontSize: 24),
+            color: Colors.grey[600],
+            fontFamily: 'Orbitron',
+            fontSize: 16,
+          ),
           headline6: TextStyle(
             color: Colors.grey[400],
-            fontSize: 42,
-            shadows: shadowTextDark,
+            fontSize: 12,
             wordSpacing: 1,
             letterSpacing: 2,
-            fontFamily: 'Bungee',
+            fontFamily: 'Orbitron',
           ),
-          button: TextStyle(color: Colors.grey[400], fontFamily: 'Bungee'),
+          button: TextStyle(
+            color: Colors.grey[400],
+            fontFamily: 'Orbitron',
+          ),
         ),
       ),
       getPages: [

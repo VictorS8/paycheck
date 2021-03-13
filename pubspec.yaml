@@ -48,13 +48,9 @@ flutter:
   uses-material-design: true
 
   fonts:
-    - family: Londrina
+    - family: Orbitron
       fonts:
-        - asset: assets/fonts/LondrinaSketch-Regular.ttf
-
-    - family: Bungee
-      fonts:
-        - asset: assets/fonts/BungeeInline-Regular.ttf
+        - asset: assets/fonts/Orbitron-VariableFont_wght.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
