@@ -13,7 +13,6 @@ class PayBase extends StatefulWidget {
 }
 
 class _PayBaseState extends State<PayBase> {
-
   final ScreenController screenController = Get.put(ScreenController());
 
   @override
