@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:paycheck/controllers/screencontroller.dart';
+import 'package:paycheck/controllers/screen_controller.dart';
 
 class PayBase extends StatefulWidget {
   final Widget payBody;
@@ -33,12 +33,17 @@ class _PayBaseState extends State<PayBase> {
         selectedItemColor: Theme.of(context).secondaryHeaderColor,
         unselectedItemColor: Theme.of(context).primaryColor,
         backgroundColor: Theme.of(context).backgroundColor,
+        selectedLabelStyle: Theme.of(context).textTheme.headline3,
+        unselectedLabelStyle: Theme.of(context).textTheme.headline6,
         items: [
           BottomNavigationBarItem(
+              tooltip: "Check list of payments",
               icon: Icon(Icons.account_balance_wallet_rounded),
               label: "Check List"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add_chart), label: "Add Pay"),
+              tooltip: "Add a payment to the list",
+              icon: Icon(Icons.add_chart),
+              label: "Add Pay"),
         ],
         onTap: screenController.onItemTapped,
       ),

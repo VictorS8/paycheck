@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:paycheck/pages/pay/paybase.dart';
+import 'package:paycheck/pages/pay/pay_base.dart';
+import 'package:paycheck/widgets/name_text_field.dart';
 
 class PayRegister extends StatefulWidget {
   @override
@@ -7,6 +8,8 @@ class PayRegister extends StatefulWidget {
 }
 
 class _PayRegisterState extends State<PayRegister> {
+  TextEditingController _nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return PayBase(
@@ -15,9 +18,16 @@ class _PayRegisterState extends State<PayRegister> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Changed',
+              'Name:',
               style: Theme.of(context).textTheme.headline3,
-            )
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0),
+              child: NameTextField(
+                nameController: _nameController,
+              ),
+            ),
           ],
         ),
       ),
