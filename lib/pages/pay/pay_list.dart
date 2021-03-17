@@ -7,7 +7,7 @@ class PayList extends StatefulWidget {
 }
 
 class _PayListState extends State<PayList> {
-  List<int> items = [1, 2, 3];
+  List<int> listItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +15,11 @@ class _PayListState extends State<PayList> {
       payBody: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: items.length,
+        itemCount: listItems.length,
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(
-              'Hello ${items[index]}',
+              'Hello ${listItems[index]}',
               style: Theme.of(context).textTheme.headline3,
               textAlign: TextAlign.center,
             ),

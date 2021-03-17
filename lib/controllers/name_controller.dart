@@ -14,5 +14,4 @@ class NameController {
     this.nameController.clear();
     this.name = '';
   }
-
 }

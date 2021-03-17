@@ -1,36 +1,37 @@
 import 'package:flutter/material.dart';
 
-class NameTextField extends StatefulWidget {
-  final TextEditingController nameController;
+class ValueTextField extends StatefulWidget {
+  final TextEditingController valueController;
   final Function onEditingComplete;
 
-  NameTextField(
-      {@required this.nameController, @required this.onEditingComplete});
+  ValueTextField(
+      {@required this.valueController, @required this.onEditingComplete});
 
   @override
-  _NameTextFieldState createState() => _NameTextFieldState();
+  _ValueTextFieldState createState() => _ValueTextFieldState();
 }
 
-class _NameTextFieldState extends State<NameTextField> {
+class _ValueTextFieldState extends State<ValueTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       style: Theme.of(context).textTheme.bodyText2,
       textAlign: TextAlign.center,
-      keyboardType: TextInputType.name,
+      keyboardType:
+          TextInputType.numberWithOptions(signed: false, decimal: true),
       textCapitalization: TextCapitalization.sentences,
       cursorColor: Theme.of(context).primaryColor,
       cursorRadius: Radius.circular(64.0),
-      controller: widget.nameController,
+      controller: widget.valueController,
       onEditingComplete: widget.onEditingComplete,
       decoration: InputDecoration(
           alignLabelWithHint: true,
-          hintText: 'Payment name',
+          hintText: 'Pay value',
           hintStyle: Theme.of(context)
               .textTheme
               .bodyText2
               .apply(color: Colors.grey[100].withOpacity(0.1)),
-          helperText: 'Example : nubankPayment',
+          helperText: 'Example : 123.45',
           helperStyle: Theme.of(context).textTheme.headline6,
           focusColor: Theme.of(context).primaryColor,
           fillColor: Theme.of(context).secondaryHeaderColor,
