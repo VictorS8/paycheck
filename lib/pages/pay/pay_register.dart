@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:paycheck/controllers/name_controller.dart';
 import 'package:paycheck/controllers/value_controller.dart';
 import 'package:paycheck/pages/pay/pay_base.dart';
@@ -25,7 +26,7 @@ class _PayRegisterState extends State<PayRegister> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Name:',
-                style: Theme.of(context).textTheme.headline3,
+                style: Get.theme.textTheme.headline3,
               ),
             ),
             Padding(
@@ -40,7 +41,7 @@ class _PayRegisterState extends State<PayRegister> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Value:',
-                style: Theme.of(context).textTheme.headline3,
+                style: Get.theme.textTheme.headline3,
               ),
             ),
             Padding(
@@ -59,7 +60,7 @@ class _PayRegisterState extends State<PayRegister> {
         child: Icon(
           Icons.add_circle_outline_rounded,
           size: 32,
-          color: Theme.of(context).secondaryHeaderColor,
+          color: Get.theme.secondaryHeaderColor,
         ),
         onPressed: () => {
           _nameController.saveName(),

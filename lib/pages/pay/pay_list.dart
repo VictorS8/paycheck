@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:paycheck/pages/pay/pay_base.dart';
 
 class PayList extends StatefulWidget {
@@ -20,7 +21,7 @@ class _PayListState extends State<PayList> {
           return ListTile(
             title: Text(
               'Hello ${listItems[index]}',
-              style: Theme.of(context).textTheme.headline3,
+              style: Get.theme.textTheme.headline3,
               textAlign: TextAlign.center,
             ),
           );

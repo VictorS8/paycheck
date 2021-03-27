@@ -22,19 +22,19 @@ class _PayBaseState extends State<PayBase> {
         centerTitle: true,
         title: Text(
           'Pay Check',
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Get.theme.textTheme.bodyText1,
         ),
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Get.theme.primaryColor,
       ),
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Get.theme.backgroundColor,
       body: widget.payBody,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: screenController.screenIdentifier,
-        selectedItemColor: Theme.of(context).secondaryHeaderColor,
-        unselectedItemColor: Theme.of(context).primaryColor,
-        backgroundColor: Theme.of(context).backgroundColor,
-        selectedLabelStyle: Theme.of(context).textTheme.headline3,
-        unselectedLabelStyle: Theme.of(context).textTheme.headline6,
+        selectedItemColor: Get.theme.secondaryHeaderColor,
+        unselectedItemColor: Get.theme.primaryColor,
+        backgroundColor: Get.theme.backgroundColor,
+        selectedLabelStyle: Get.theme.textTheme.headline3,
+        unselectedLabelStyle: Get.theme.textTheme.headline6,
         items: [
           BottomNavigationBarItem(
               tooltip: "Check list of payments",
