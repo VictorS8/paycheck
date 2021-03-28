@@ -21,12 +21,13 @@ class _PayListState extends State<PayList> {
           return ListTile(
             title: Text(
               'Hello ${listItems[index]}',
-              style: Get.theme.textTheme.headline3,
+              style: Get.theme!.textTheme.headline3,
               textAlign: TextAlign.center,
             ),
           );
         },
       ),
+      payFloatingActionButton: null,
     );
   }
 }

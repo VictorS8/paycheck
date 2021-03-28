@@ -4,9 +4,9 @@ import 'package:paycheck/controllers/screen_controller.dart';
 
 class PayBase extends StatefulWidget {
   final Widget payBody;
-  final Widget payFloatingActionButton;
+  final Widget? payFloatingActionButton;
 
-  PayBase({@required this.payBody, this.payFloatingActionButton});
+  PayBase({required this.payBody, this.payFloatingActionButton});
 
   @override
   _PayBaseState createState() => _PayBaseState();
@@ -22,19 +22,19 @@ class _PayBaseState extends State<PayBase> {
         centerTitle: true,
         title: Text(
           'Pay Check',
-          style: Get.theme.textTheme.bodyText1,
+          style: Get.theme!.textTheme.bodyText1,
         ),
-        backgroundColor: Get.theme.primaryColor,
+        backgroundColor: Get.theme!.primaryColor,
       ),
-      backgroundColor: Get.theme.backgroundColor,
+      backgroundColor: Get.theme!.backgroundColor,
       body: widget.payBody,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: screenController.screenIdentifier,
-        selectedItemColor: Get.theme.secondaryHeaderColor,
-        unselectedItemColor: Get.theme.primaryColor,
-        backgroundColor: Get.theme.backgroundColor,
-        selectedLabelStyle: Get.theme.textTheme.headline3,
-        unselectedLabelStyle: Get.theme.textTheme.headline6,
+        selectedItemColor: Get.theme!.secondaryHeaderColor,
+        unselectedItemColor: Get.theme!.primaryColor,
+        backgroundColor: Get.theme!.backgroundColor,
+        selectedLabelStyle: Get.theme!.textTheme.headline3,
+        unselectedLabelStyle: Get.theme!.textTheme.headline6,
         items: [
           BottomNavigationBarItem(
               tooltip: "Check list of payments",
