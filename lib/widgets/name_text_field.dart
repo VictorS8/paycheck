@@ -15,26 +15,26 @@ class _NameTextFieldState extends State<NameTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: Get.theme!.textTheme.bodyText2,
+      style: Get.theme.textTheme.bodyText2,
       textAlign: TextAlign.center,
       keyboardType: TextInputType.name,
       textCapitalization: TextCapitalization.sentences,
-      cursorColor: Get.theme!.primaryColor,
+      cursorColor: Get.theme.primaryColor,
       cursorRadius: Radius.circular(64.0),
       controller: widget.nameController,
       decoration: InputDecoration(
           alignLabelWithHint: true,
           hintText: 'Payment name',
-          hintStyle: Get.theme!
+          hintStyle: Get.theme
               .textTheme
               .bodyText2!
               .apply(color: Colors.grey[100]!.withOpacity(0.1)),
           helperText: 'Example : nubankPayment',
-          helperStyle: Get.theme!.textTheme.headline6,
-          focusColor: Get.theme!.primaryColor,
-          fillColor: Get.theme!.secondaryHeaderColor,
-          labelStyle: Get.theme!.textTheme.headline6,
-          hoverColor: Get.theme!.primaryColor,
+          helperStyle: Get.theme.textTheme.headline6,
+          focusColor: Get.theme.primaryColor,
+          fillColor: Get.theme.secondaryHeaderColor,
+          labelStyle: Get.theme.textTheme.headline6,
+          hoverColor: Get.theme.primaryColor,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(64.0),
           )),

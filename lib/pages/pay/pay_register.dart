@@ -26,7 +26,7 @@ class _PayRegisterState extends State<PayRegister> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Name:',
-                style: Get.theme!.textTheme.headline3,
+                style: Get.theme.textTheme.headline3,
               ),
             ),
             Padding(
@@ -40,7 +40,7 @@ class _PayRegisterState extends State<PayRegister> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Value:',
-                style: Get.theme!.textTheme.headline3,
+                style: Get.theme.textTheme.headline3,
               ),
             ),
             Padding(
@@ -58,15 +58,11 @@ class _PayRegisterState extends State<PayRegister> {
         child: Icon(
           Icons.add_circle_outline_rounded,
           size: 32,
-          color: Get.theme!.secondaryHeaderColor,
+          color: Get.theme.secondaryHeaderColor,
         ),
         onPressed: () => {
           _nameController.saveName(),
           _valueController.saveValue(),
-          print(
-              'Saved tap ${_nameController.showName} and ${_nameController.showName.runtimeType}'),
-          print(
-              'Saved tap ${_valueController.showValue} and ${_valueController.showValue.runtimeType}')
         },
       ),
     );

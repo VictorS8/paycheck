@@ -15,27 +15,27 @@ class _ValueTextFieldState extends State<ValueTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: Get.theme!.textTheme.bodyText2,
+      style: Get.theme.textTheme.bodyText2,
       textAlign: TextAlign.center,
       keyboardType:
           TextInputType.numberWithOptions(signed: false, decimal: true),
       textCapitalization: TextCapitalization.sentences,
-      cursorColor: Get.theme!.primaryColor,
+      cursorColor: Get.theme.primaryColor,
       cursorRadius: Radius.circular(64.0),
       controller: widget.valueController,
       decoration: InputDecoration(
           alignLabelWithHint: true,
           hintText: 'Pay value',
-          hintStyle: Get.theme!
+          hintStyle: Get.theme
               .textTheme
               .bodyText2!
               .apply(color: Colors.grey[100]!.withOpacity(0.1)),
           helperText: 'Example : 123.45',
-          helperStyle: Get.theme!.textTheme.headline6,
-          focusColor: Get.theme!.primaryColor,
-          fillColor: Get.theme!.secondaryHeaderColor,
-          labelStyle: Get.theme!.textTheme.headline6,
-          hoverColor: Get.theme!.primaryColor,
+          helperStyle: Get.theme.textTheme.headline6,
+          focusColor: Get.theme.primaryColor,
+          fillColor: Get.theme.secondaryHeaderColor,
+          labelStyle: Get.theme.textTheme.headline6,
+          hoverColor: Get.theme.primaryColor,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(64.0),
           )),
