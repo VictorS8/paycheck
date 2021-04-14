@@ -4,6 +4,13 @@ class NameController {
   TextEditingController nameController = TextEditingController();
   String name = '';
 
+  bool hasData() {
+    if (showName == '')
+      return false;
+    else
+      return true;
+  }
+
   void saveName() {
     this.name = nameController.text;
   }
