@@ -10,35 +10,35 @@ class Base extends StatelessWidget {
       title: 'PayCheck',
       home: PayList(),
       theme: ThemeData(
-        primaryColor: Colors.grey[900],
-        secondaryHeaderColor: Colors.grey[300],
-        buttonColor: Colors.white,
+        primaryColor: Colors.grey[700],
+        secondaryHeaderColor: Colors.grey[900],
+        buttonColor: Colors.grey[700],
         backgroundColor: Colors.grey[400],
         textTheme: TextTheme(
           bodyText1: TextStyle(
-            fontFamily: 'Orbitron',
             color: Colors.grey[900],
+            fontFamily: 'Orbitron',
             fontSize: 42,
           ),
           bodyText2: TextStyle(
+            color: Colors.grey[700],
             fontFamily: 'Orbitron',
-            color: Colors.grey[100],
             fontSize: 24,
           ),
           headline3: TextStyle(
-            color: Colors.white,
+            color: Colors.grey[700],
             fontFamily: 'Orbitron',
             fontSize: 16,
           ),
           headline6: TextStyle(
-            color: Colors.white,
+            color: Colors.grey[900],
+            fontFamily: 'Orbitron',
             fontSize: 12,
             wordSpacing: 1,
             letterSpacing: 2,
-            fontFamily: 'Orbitron',
           ),
           button: TextStyle(
-            color: Colors.grey[400],
+            color: Colors.grey[900],
             fontFamily: 'Orbitron',
           ),
         ),
@@ -50,13 +50,13 @@ class Base extends StatelessWidget {
         backgroundColor: Colors.grey[900],
         textTheme: TextTheme(
           bodyText1: TextStyle(
-            fontFamily: 'Orbitron',
             color: Colors.grey[600],
+            fontFamily: 'Orbitron',
             fontSize: 42,
           ),
           bodyText2: TextStyle(
-            fontFamily: 'Orbitron',
             color: Colors.grey[400],
+            fontFamily: 'Orbitron',
             fontSize: 24,
           ),
           headline3: TextStyle(
@@ -66,10 +66,10 @@ class Base extends StatelessWidget {
           ),
           headline6: TextStyle(
             color: Colors.grey[400],
+            fontFamily: 'Orbitron',
             fontSize: 12,
             wordSpacing: 1,
             letterSpacing: 2,
-            fontFamily: 'Orbitron',
           ),
           button: TextStyle(
             color: Colors.grey[400],

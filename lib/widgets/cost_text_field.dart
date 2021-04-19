@@ -25,8 +25,11 @@ class _CostTextFieldState extends State<CostTextField> {
       decoration: InputDecoration(
           alignLabelWithHint: true,
           hintText: 'Payment cost',
-          hintStyle: Get.textTheme.bodyText2!
-              .apply(color: Colors.grey[100]!.withOpacity(0.1)),
+          hintStyle: Get.isDarkMode
+              ? Get.textTheme.bodyText2!
+              .apply(color: Colors.grey[100]!.withOpacity(0.2))
+              : Get.textTheme.bodyText2!
+              .apply(color: Colors.grey[700]!.withOpacity(0.2)),
           helperText: 'Example : 123.45',
           helperStyle: Get.textTheme.headline6,
           focusColor: Get.theme.primaryColor,

@@ -24,8 +24,11 @@ class _NameTextFieldState extends State<NameTextField> {
       decoration: InputDecoration(
           alignLabelWithHint: true,
           hintText: 'Payment name',
-          hintStyle: Get.textTheme.bodyText2!
-              .apply(color: Colors.grey[100]!.withOpacity(0.1)),
+          hintStyle: Get.isDarkMode
+              ? Get.textTheme.bodyText2!
+                  .apply(color: Colors.grey[100]!.withOpacity(0.2))
+              : Get.textTheme.bodyText2!
+                  .apply(color: Colors.grey[700]!.withOpacity(0.2)),
           helperText: 'Example : nubankPayment',
           helperStyle: Get.textTheme.headline6,
           focusColor: Get.theme.primaryColor,
