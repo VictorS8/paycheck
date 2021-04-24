@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paycheck/pages/pay/pay_base.dart';
+import 'package:paycheck/widgets/pay_list_tile.dart';
 
 class PayList extends StatefulWidget {
   @override
@@ -8,25 +9,34 @@ class PayList extends StatefulWidget {
 }
 
 class _PayListState extends State<PayList> {
-  List<int> listItems = [];
+  Map<String, double> mapItems = {
+    'Hello': 231,
+    'Now': 21.34,
+    'Now and then': 1090.23
+  };
 
   @override
   Widget build(BuildContext context) {
     return PayBase(
-      payBody: ListView.builder(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemCount: listItems.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(
-              'Hello ${listItems[index]}',
-              style: Get.theme.textTheme.headline3,
-              textAlign: TextAlign.center,
+      payBody: mapItems.length == 0
+          ? Center(
+              child: Text(
+                'No pay checks on list',
+                style: Get.theme.textTheme.headline3,
+                textAlign: TextAlign.center,
+              ),
+            )
+          : ListView.builder(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              itemCount: mapItems.length,
+              itemBuilder: (context, index) {
+                return PayListTile(
+                  listTileText: '${mapItems.keys.toList()[index]}',
+                  listTileSubtitle: '\$ : ${mapItems.values.toList()[index]}',
+                );
+              },
             ),
-          );
-        },
-      ),
       payFloatingActionButton: null,
     );
   }
