@@ -3,6 +3,6 @@ import 'package:get_storage/get_storage.dart';
 import 'package:paycheck/pages/base.dart';
 
 void main() async {
-  await GetStorage.init();
+  await GetStorage.init('themeStorage');
   runApp(Base());
 }

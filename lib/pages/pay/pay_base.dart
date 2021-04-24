@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:paycheck/controllers/screen_controller.dart';
 
 class PayBase extends StatefulWidget {
@@ -14,12 +15,42 @@ class PayBase extends StatefulWidget {
 
 class _PayBaseState extends State<PayBase> {
   final ScreenController screenController = Get.put(ScreenController());
+  final darkModeStorage = GetStorage('themeStorage');
 
   @override
   Widget build(BuildContext context) {
+    bool darkModeFromStorage =
+        darkModeStorage.read('darkMode') ?? Get.isDarkMode;
+
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 32.0),
+            child: IconButton(
+              onPressed: () {
+                setState(() {
+                  darkModeFromStorage
+                      ? Get.changeThemeMode(ThemeMode.light)
+                      : Get.changeThemeMode(ThemeMode.dark);
+                  darkModeFromStorage = !darkModeFromStorage;
+                  darkModeStorage.write('darkMode', darkModeFromStorage);
+                });
+              },
+              icon: darkModeFromStorage
+                  ? Icon(
+                      Icons.mood_sharp,
+                      size: 32.0,
+                      color: Get.theme.secondaryHeaderColor,
+                    )
+                  : Icon(
+                      Icons.mood_bad_sharp,
+                      size: 32.0,
+                      color: Get.theme.secondaryHeaderColor,
+                    ),
+            ),
+          ),
+        ],
         title: Text(
           'Pay Check',
           style: Get.theme.textTheme.bodyText1,
@@ -27,7 +58,22 @@ class _PayBaseState extends State<PayBase> {
         backgroundColor: Get.theme.primaryColor,
       ),
       backgroundColor: Get.theme.backgroundColor,
-      body: widget.payBody,
+      body: Row(
+        children: [
+          Expanded(
+            flex: 1,
+            child: Container(),
+          ),
+          Expanded(
+            flex: 6,
+            child: widget.payBody,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(),
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: screenController.screenIdentifier,
         selectedItemColor: Get.theme.secondaryHeaderColor,
