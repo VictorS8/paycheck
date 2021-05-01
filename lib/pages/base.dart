@@ -9,7 +9,7 @@ class Base extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool darkMode = darkModeStorage.read('darkMode');
+    final bool darkMode = darkModeStorage.read('darkMode') ?? true;
 
     return GetMaterialApp(
       title: 'PayCheck',
