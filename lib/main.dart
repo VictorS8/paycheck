@@ -4,5 +4,6 @@ import 'package:paycheck/pages/base.dart';
 
 void main() async {
   await GetStorage.init('themeStorage');
+  await GetStorage.init();
   runApp(Base());
 }
