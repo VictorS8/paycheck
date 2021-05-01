@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paycheck/controllers/keys/keys_storage_controller.dart';
 import 'package:paycheck/pages/pay/pay_base.dart';
 import 'package:paycheck/widgets/pay_list_tile.dart';
 
@@ -9,11 +10,16 @@ class PayList extends StatefulWidget {
 }
 
 class _PayListState extends State<PayList> {
-  Map<String, double> mapItems = {
-    'Hello': 231,
-    'Now': 21.34,
-    'Now and then': 1090.23
-  };
+  late Map<String, double> mapItems;
+  late KeysStorageController _keysStorageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _keysStorageController = KeysStorageController();
+    mapItems = _keysStorageController.showKeysAndValues();
+    print('Items Map = $mapItems');
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paycheck/controllers/cost_controller.dart';
+import 'package:paycheck/controllers/keys/keys_storage_controller.dart';
 import 'package:paycheck/controllers/name_controller.dart';
 import 'package:paycheck/pages/pay/pay_base.dart';
 import 'package:paycheck/widgets/cost_text_field.dart';
@@ -15,6 +16,7 @@ class PayRegister extends StatefulWidget {
 class _PayRegisterState extends State<PayRegister> {
   NameController _nameController = NameController();
   CostController _costController = CostController();
+  KeysStorageController _keysStorageController = KeysStorageController();
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +83,10 @@ class _PayRegisterState extends State<PayRegister> {
           _costController.saveValue(),
           if (_nameController.hasData() && _costController.hasData())
             {
+              setState(() {
+                _keysStorageController.writeKeyAndValue(
+                    _nameController.showName, _costController.showCost);
+              }),
               snackBarConfirmation('Registered your PayCheck',
                   'Check ${_nameController.showName} with cost of ${_costController.showCost} was added!'),
             }
