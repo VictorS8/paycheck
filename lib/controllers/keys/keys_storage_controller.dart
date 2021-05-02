@@ -6,6 +6,13 @@ class KeysStorageController {
 
   final storageKeys = GetStorage();
 
+  /* TODO -
+      1 - Create a delete function for storage to be able to open space on
+      memory deleting all data
+      2 - Create a delete function for storage to be able to open space on
+      memory deleting each required data
+  */
+
   writeKeyAndValue(String payName, double payCost) {
     double? payCostFromKey = storageKeys.read(payName);
     if (payCostFromKey == null) {
@@ -35,9 +42,13 @@ class KeysStorageController {
     List<String>? keysList = showKeysAsList();
     if (keysList == null) return {};
     int keysNumber = keysList.length;
-    late List<double> valuesList;
-    for (int i = 0; i < keysNumber; i++)
-      valuesList = storageKeys.read(keysList[i]);
+    List<double> valuesList = [];
+    for (int i = 0; i < keysNumber; i++) {
+      double? eachValue = storageKeys.read(keysList[i]);
+      if (eachValue == null) return {};
+      valuesList.add(eachValue);
+    }
+
     return Map.fromIterables(keysList, valuesList);
   }
 }

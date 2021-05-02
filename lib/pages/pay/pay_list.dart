@@ -11,14 +11,12 @@ class PayList extends StatefulWidget {
 
 class _PayListState extends State<PayList> {
   late Map<String, double> mapItems;
-  late KeysStorageController _keysStorageController;
+  KeysStorageController _keysStorageController = KeysStorageController();
 
   @override
   void initState() {
     super.initState();
-    _keysStorageController = KeysStorageController();
     mapItems = _keysStorageController.showKeysAndValues();
-    print('Items Map = $mapItems');
   }
 
   @override
@@ -26,11 +24,8 @@ class _PayListState extends State<PayList> {
     return PayBase(
       payBody: mapItems.length == 0
           ? Center(
-              child: Text(
-                'No pay checks on list',
-                style: Get.theme.textTheme.headline3,
-                textAlign: TextAlign.center,
-              ),
+              child: Text('No pay checks on list',
+                  textAlign: TextAlign.center, style: Get.textTheme.headline3),
             )
           : ListView.builder(
               scrollDirection: Axis.vertical,
