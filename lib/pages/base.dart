@@ -16,47 +16,65 @@ class Base extends StatelessWidget {
       home: PayList(),
       themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
       theme: ThemeData(
-        primaryColor: Colors.grey[700],
+        primaryColor: Colors.purple[900],
         secondaryHeaderColor: Colors.grey[900],
-        buttonColor: Colors.grey[700],
+        buttonColor: Colors.purple[900],
         backgroundColor: Colors.grey[400],
+        shadowColor: Colors.grey[900],
+        tooltipTheme: TooltipThemeData(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.0),
+            color: Get.theme.shadowColor,
+          ),
+          textStyle:
+              Get.textTheme.headline6!.apply(color: Get.theme.backgroundColor),
+        ),
         textTheme: TextTheme(
           bodyText1: TextStyle(
-            color: Colors.grey[900],
+            color: Colors.grey[400],
             fontFamily: 'Orbitron',
             fontSize: 32,
           ),
           bodyText2: TextStyle(
-            color: Colors.grey[700],
+            color: Colors.purple[900],
             fontFamily: 'Orbitron',
             fontSize: 16,
           ),
           headline3: TextStyle(
-            color: Colors.grey[700],
+            color: Colors.purple[900],
             fontFamily: 'Orbitron',
             fontSize: 12,
           ),
           headline6: TextStyle(
-            color: Colors.grey[900],
+            color: Colors.purple[900],
             fontFamily: 'Orbitron',
             fontSize: 8,
             wordSpacing: 1,
             letterSpacing: 2,
           ),
           button: TextStyle(
-            color: Colors.grey[900],
+            color: Colors.grey[400],
             fontFamily: 'Orbitron',
           ),
         ),
       ),
       darkTheme: ThemeData(
-        primaryColor: Colors.grey[800],
-        secondaryHeaderColor: Colors.grey[300],
-        buttonColor: Colors.grey[800],
+        primaryColor: Colors.grey[400],
+        secondaryHeaderColor: Colors.purple[800],
+        buttonColor: Colors.grey[400],
         backgroundColor: Colors.grey[900],
+        shadowColor: Colors.grey[700],
+        tooltipTheme: TooltipThemeData(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.0),
+            color: Get.theme.shadowColor,
+          ),
+          textStyle:
+              Get.textTheme.headline6!.apply(color: Get.theme.backgroundColor),
+        ),
         textTheme: TextTheme(
           bodyText1: TextStyle(
-            color: Colors.grey[600],
+            color: Colors.grey[900],
             fontFamily: 'Orbitron',
             fontSize: 32,
           ),
@@ -66,7 +84,7 @@ class Base extends StatelessWidget {
             fontSize: 16,
           ),
           headline3: TextStyle(
-            color: Colors.grey[600],
+            color: Colors.grey[400],
             fontFamily: 'Orbitron',
             fontSize: 12,
           ),
@@ -78,7 +96,7 @@ class Base extends StatelessWidget {
             letterSpacing: 2,
           ),
           button: TextStyle(
-            color: Colors.grey[400],
+            color: Colors.grey[900],
             fontFamily: 'Orbitron',
           ),
         ),

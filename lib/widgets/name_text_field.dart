@@ -22,19 +22,21 @@ class _NameTextFieldState extends State<NameTextField> {
       cursorRadius: Radius.circular(64.0),
       controller: widget.nameController,
       decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Get.theme.primaryColor, width: 1.0),
+            borderRadius: BorderRadius.circular(64.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: Get.theme.secondaryHeaderColor, width: 2.0),
+            borderRadius: BorderRadius.circular(64.0),
+          ),
           alignLabelWithHint: true,
           hintText: 'Payment name',
-          hintStyle: Get.isDarkMode
-              ? Get.textTheme.bodyText2!
-                  .apply(color: Colors.grey[100]!.withOpacity(0.2))
-              : Get.textTheme.bodyText2!
-                  .apply(color: Colors.grey[700]!.withOpacity(0.2)),
+          hintStyle: Get.textTheme.bodyText2!
+              .apply(color: Get.theme.primaryColor.withOpacity(0.4)),
           helperText: 'Example : nubankPayment',
           helperStyle: Get.textTheme.headline6,
-          focusColor: Get.theme.primaryColor,
-          fillColor: Get.theme.secondaryHeaderColor,
-          labelStyle: Get.textTheme.headline6,
-          hoverColor: Get.theme.primaryColor,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(64.0),
           )),

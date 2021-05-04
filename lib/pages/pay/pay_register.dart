@@ -43,7 +43,8 @@ class _PayRegisterState extends State<PayRegister> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Name:',
-                style: Get.theme.textTheme.headline3,
+                style:
+                    Get.theme.textTheme.headline3!.apply(fontSizeFactor: 1.5),
               ),
             ),
             Padding(
@@ -57,7 +58,8 @@ class _PayRegisterState extends State<PayRegister> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Cost:',
-                style: Get.theme.textTheme.headline3,
+                style:
+                    Get.theme.textTheme.headline3!.apply(fontSizeFactor: 1.5),
               ),
             ),
             Padding(
@@ -76,7 +78,7 @@ class _PayRegisterState extends State<PayRegister> {
         child: Icon(
           Icons.add_circle_outline_rounded,
           size: 32,
-          color: Get.theme.secondaryHeaderColor,
+          color: Get.theme.backgroundColor,
         ),
         onPressed: () => {
           _nameController.saveName(),

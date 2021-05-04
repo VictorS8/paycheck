@@ -25,9 +25,21 @@ class _PayBaseState extends State<PayBase> {
     return Scaffold(
       appBar: AppBar(
         actions: [
+          IconButton(
+            tooltip: "Delete all data",
+            onPressed: () {
+              setState(() {});
+            },
+            icon: Icon(
+              Icons.restore_from_trash_rounded,
+              size: 32.0,
+              color: Get.theme.backgroundColor,
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.only(right: 32.0),
             child: IconButton(
+              tooltip: "Change mode [DarkMode/LightMode]",
               onPressed: () {
                 setState(() {
                   darkModeFromStorage
@@ -41,12 +53,12 @@ class _PayBaseState extends State<PayBase> {
                   ? Icon(
                       Icons.mood_sharp,
                       size: 32.0,
-                      color: Get.theme.secondaryHeaderColor,
+                      color: Get.theme.backgroundColor,
                     )
                   : Icon(
                       Icons.mood_bad_sharp,
                       size: 32.0,
-                      color: Get.theme.secondaryHeaderColor,
+                      color: Get.theme.backgroundColor,
                     ),
             ),
           ),
@@ -76,16 +88,17 @@ class _PayBaseState extends State<PayBase> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: screenController.screenIdentifier,
-        selectedItemColor: Get.theme.secondaryHeaderColor,
-        unselectedItemColor: Get.theme.primaryColor,
+        selectedItemColor: Get.theme.primaryColor,
+        unselectedItemColor: Get.theme.shadowColor,
         backgroundColor: Get.theme.backgroundColor,
         selectedLabelStyle: Get.theme.textTheme.headline3,
         unselectedLabelStyle: Get.theme.textTheme.headline6,
         items: [
           BottomNavigationBarItem(
-              tooltip: "Check list of payments",
-              icon: Icon(Icons.account_balance_wallet_rounded),
-              label: "Check List"),
+            tooltip: "Check list of payments",
+            icon: Icon(Icons.account_balance_wallet_rounded),
+            label: "Check List",
+          ),
           BottomNavigationBarItem(
               tooltip: "Add a payment to the list",
               icon: Icon(Icons.add_chart),
