@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:paycheck/constants/dimensions.dart';
+import 'package:paycheck/constants/strings.dart';
 import 'package:paycheck/controllers/screen_controller.dart';
 
 class PayBase extends StatefulWidget {
@@ -26,20 +28,20 @@ class _PayBaseState extends State<PayBase> {
       appBar: AppBar(
         actions: [
           IconButton(
-            tooltip: "Delete all data",
+            tooltip: deleteButtonTooltip,
             onPressed: () {
               setState(() {});
             },
             icon: Icon(
               Icons.restore_from_trash_rounded,
-              size: 32.0,
+              size: iconSize,
               color: Get.theme.backgroundColor,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 32.0),
+            padding: const EdgeInsets.only(right: rightPaddingFirstIcon),
             child: IconButton(
-              tooltip: "Change mode [DarkMode/LightMode]",
+              tooltip: darkModeButtonTooltip,
               onPressed: () {
                 setState(() {
                   darkModeFromStorage
@@ -52,19 +54,19 @@ class _PayBaseState extends State<PayBase> {
               icon: darkModeFromStorage
                   ? Icon(
                       Icons.mood_sharp,
-                      size: 32.0,
+                      size: iconSize,
                       color: Get.theme.backgroundColor,
                     )
                   : Icon(
                       Icons.mood_bad_sharp,
-                      size: 32.0,
+                      size: iconSize,
                       color: Get.theme.backgroundColor,
                     ),
             ),
           ),
         ],
         title: Text(
-          'Pay Check',
+          title,
           style: Get.theme.textTheme.bodyText1,
         ),
         backgroundColor: Get.theme.primaryColor,
@@ -73,15 +75,15 @@ class _PayBaseState extends State<PayBase> {
       body: Row(
         children: [
           Expanded(
-            flex: 1,
+            flex: smallFlex,
             child: Container(),
           ),
           Expanded(
-            flex: 6,
+            flex: mainFlex,
             child: widget.payBody,
           ),
           Expanded(
-            flex: 1,
+            flex: smallFlex,
             child: Container(),
           ),
         ],
@@ -95,14 +97,14 @@ class _PayBaseState extends State<PayBase> {
         unselectedLabelStyle: Get.theme.textTheme.headline6,
         items: [
           BottomNavigationBarItem(
-            tooltip: "Check list of payments",
+            tooltip: paymentListBottomButtonTooltip,
             icon: Icon(Icons.account_balance_wallet_rounded),
-            label: "Check List",
+            label: paymentListBottomButtonLabel,
           ),
           BottomNavigationBarItem(
-              tooltip: "Add a payment to the list",
+              tooltip: paymentRegisterBottomButtonTooltip,
               icon: Icon(Icons.add_chart),
-              label: "Add Pay"),
+              label: paymentRegisterBottomButtonLabel),
         ],
         onTap: screenController.onItemTapped,
       ),

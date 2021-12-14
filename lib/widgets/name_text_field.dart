@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paycheck/constants/dimensions.dart';
+import 'package:paycheck/constants/strings.dart';
 
 class NameTextField extends StatefulWidget {
   final TextEditingController nameController;
@@ -19,26 +21,28 @@ class _NameTextFieldState extends State<NameTextField> {
       keyboardType: TextInputType.name,
       textCapitalization: TextCapitalization.sentences,
       cursorColor: Get.theme.primaryColor,
-      cursorRadius: Radius.circular(64.0),
+      cursorRadius: Radius.circular(borderRadius),
       controller: widget.nameController,
       decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Get.theme.primaryColor, width: 1.0),
-            borderRadius: BorderRadius.circular(64.0),
+            borderSide: BorderSide(
+                color: Get.theme.primaryColor, width: smallWidthBorder),
+            borderRadius: BorderRadius.circular(borderRadius),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: Get.theme.secondaryHeaderColor, width: 2.0),
-            borderRadius: BorderRadius.circular(64.0),
+            borderSide: BorderSide(
+                color: Get.theme.secondaryHeaderColor,
+                width: mediumWidthBorder),
+            borderRadius: BorderRadius.circular(borderRadius),
           ),
           alignLabelWithHint: true,
-          hintText: 'Payment name',
-          hintStyle: Get.textTheme.bodyText2!
-              .apply(color: Get.theme.primaryColor.withOpacity(0.4)),
-          helperText: 'Example : nubankPayment',
+          hintText: hintNameText,
+          hintStyle: Get.textTheme.bodyText2!.apply(
+              color: Get.theme.primaryColor.withOpacity(opacityHintText)),
+          helperText: helperNameText,
           helperStyle: Get.textTheme.headline6,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(64.0),
+            borderRadius: BorderRadius.circular(borderRadius),
           )),
     );
   }

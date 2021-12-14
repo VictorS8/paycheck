@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paycheck/constants/strings.dart';
 import 'package:paycheck/controllers/keys/keys_storage_controller.dart';
 import 'package:paycheck/pages/pay/pay_base.dart';
 import 'package:paycheck/widgets/pay_list_tile.dart';
@@ -24,7 +25,7 @@ class _PayListState extends State<PayList> {
     return PayBase(
       payBody: mapItems.length == 0
           ? Center(
-              child: Text('No pay checks on list',
+              child: Text(zeroPayList,
                   textAlign: TextAlign.center, style: Get.textTheme.headline3),
             )
           : ListView.builder(

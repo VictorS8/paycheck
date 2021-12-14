@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paycheck/constants/dimensions.dart';
 
 class PayListTile extends StatelessWidget {
   final String listTileText;
@@ -13,12 +14,12 @@ class PayListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4.0,
+      elevation: elevation,
       shadowColor: Get.theme.secondaryHeaderColor,
       color: Get.theme.primaryColor,
       clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: ListTile(
         dense: true,
@@ -26,22 +27,24 @@ class PayListTile extends StatelessWidget {
         selectedTileColor: Get.theme.backgroundColor,
         title: Text(listTileText,
             textAlign: TextAlign.center,
-            style: Get.textTheme.headline3!
-                .apply(color: Get.theme.backgroundColor, fontSizeFactor: 1.25)),
+            style: Get.textTheme.headline3!.apply(
+                color: Get.theme.backgroundColor,
+                fontSizeFactor: fontSizeFactor)),
         subtitle: Text(listTileSubtitle,
             textAlign: TextAlign.center,
-            style: Get.textTheme.headline3!
-                .apply(color: Get.theme.backgroundColor, fontSizeDelta: 1.125)),
+            style: Get.textTheme.headline3!.apply(
+                color: Get.theme.backgroundColor,
+                fontSizeDelta: fontSizeDelta)),
         onTap: () => Get.snackbar(
           'Check $listTileText',
           'Cost $listTileSubtitle',
           backgroundColor: Get.theme.primaryColor,
           colorText: Get.theme.backgroundColor,
-          borderRadius: 16.0,
+          borderRadius: borderRadius,
           isDismissible: true,
-          duration: Duration(seconds: 5),
+          duration: Duration(seconds: snackBarTime),
           snackPosition: SnackPosition.BOTTOM,
-          margin: EdgeInsets.symmetric(vertical: 16.0, horizontal: 64.0),
+          margin: EdgeInsets.all(snackBarMediumMargin),
         ),
         onLongPress: () {},
       ),

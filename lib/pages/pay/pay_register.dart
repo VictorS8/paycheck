@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paycheck/constants/dimensions.dart';
+import 'package:paycheck/constants/strings.dart';
 import 'package:paycheck/controllers/cost_controller.dart';
 import 'package:paycheck/controllers/keys/keys_storage_controller.dart';
 import 'package:paycheck/controllers/name_controller.dart';
@@ -26,11 +28,11 @@ class _PayRegisterState extends State<PayRegister> {
         message,
         backgroundColor: Get.theme.primaryColor,
         colorText: Get.theme.secondaryHeaderColor,
-        borderRadius: 16.0,
+        borderRadius: borderRadius,
         isDismissible: true,
-        duration: Duration(seconds: 5),
+        duration: Duration(seconds: snackBarTime),
         snackPosition: SnackPosition.BOTTOM,
-        margin: EdgeInsets.symmetric(vertical: 16.0, horizontal: 64.0),
+        margin: EdgeInsets.all(snackBarMediumMargin),
       );
     }
 
@@ -40,31 +42,29 @@ class _PayRegisterState extends State<PayRegister> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(borderRadius),
               child: Text(
-                'Name:',
+                nameTextField,
                 style:
                     Get.theme.textTheme.headline3!.apply(fontSizeFactor: 1.5),
               ),
             ),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0),
+              padding: const EdgeInsets.all(paddingTextField),
               child: NameTextField(
                 nameController: _nameController.nameController,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(borderRadius),
               child: Text(
-                'Cost:',
+                costTextField,
                 style:
                     Get.theme.textTheme.headline3!.apply(fontSizeFactor: 1.5),
               ),
             ),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0),
+              padding: const EdgeInsets.all(paddingTextField),
               child: CostTextField(
                 costController: _costController.costController,
               ),
@@ -73,11 +73,11 @@ class _PayRegisterState extends State<PayRegister> {
         ),
       ),
       payFloatingActionButton: FloatingActionButton(
-        tooltip: 'Add a PayCheck with name and cost',
+        tooltip: floatingActionButtonTooltip,
         backgroundColor: Theme.of(context).buttonColor,
         child: Icon(
           Icons.add_circle_outline_rounded,
-          size: 32,
+          size: iconSize,
           color: Get.theme.backgroundColor,
         ),
         onPressed: () => {
@@ -89,28 +89,28 @@ class _PayRegisterState extends State<PayRegister> {
                 _keysStorageController.writeKeyAndValue(
                     _nameController.showName, _costController.showCost);
               }),
-              snackBarConfirmation('Registered your PayCheck',
+              snackBarConfirmation(snackBarConfirmationText,
                   'Check ${_nameController.showName} with cost of ${_costController.showCost} was added!'),
             }
           else if (!_nameController.hasData() && !_costController.hasData())
             {
-              snackBarConfirmation('Both data are missing!',
-                  'Insert some value on your PayCheck name and cost'),
+              snackBarConfirmation(snackBarMissingBothDataText,
+                  snackBarMissingBothDataExplanationText),
             }
           else if (!_nameController.hasData())
             {
-              snackBarConfirmation('Name your check!',
-                  'The name of your check must be a cool name, so name it'),
+              snackBarConfirmation(
+                  snackBarMissingNameText, snackBarMissingNameExplanationText),
             }
           else if (!_costController.hasData())
             {
-              snackBarConfirmation('Choose your check cost!',
-                  'The cost of your check must be a real number, zero is not a real cost'),
+              snackBarConfirmation(
+                  snackBarMissingCostText, snackBarMissingCostExplanationText),
             }
           else
             {
-              snackBarConfirmation('May be one of your data is missing!',
-                  'Check your PayCheck name and value to see if anyone is missing'),
+              snackBarConfirmation(snackBarMissingSomeDataText,
+                  snackBarMissingSomeDataExplanationText),
             }
         },
       ),

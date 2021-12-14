@@ -12,7 +12,7 @@ class Base extends StatelessWidget {
     final bool darkMode = darkModeStorage.read('darkMode') ?? true;
 
     return GetMaterialApp(
-      title: 'PayCheck',
+      title: 'PayApp',
       home: PayList(),
       themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
       theme: ThemeData(
@@ -22,6 +22,7 @@ class Base extends StatelessWidget {
         backgroundColor: Colors.grey[400],
         shadowColor: Colors.grey[900],
         tooltipTheme: TooltipThemeData(
+          padding: EdgeInsets.all(4.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
             color: Get.theme.shadowColor,

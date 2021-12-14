@@ -11,6 +11,8 @@ class KeysReaderTextController {
       delete function of GetStorage on delete each
   */
 
+  // TODO - See path provider to create a directory to store keys.txt
+
   List<String>? showKeysList() {
     final file = File(pathText);
     String dataText = file.readAsStringSync();
